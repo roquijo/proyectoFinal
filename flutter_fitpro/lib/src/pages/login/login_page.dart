@@ -4,7 +4,7 @@ import '../../utils/my_colors.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 
 class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key}) : super(key: key);
+  const LoginPage({Key key}) : super(key: key);
 
   @override
   State<LoginPage> createState() => _LoginPageState();
