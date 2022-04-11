@@ -1,6 +1,6 @@
-# flutter_fitpro
+# flutter_delivery
 
-A new Flutter project.
+Este paso a paso se desarrollaremos un app Delivery
 
 ## Getting Started
 

@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_fitpro/src/login/login_page.dart';
-import 'package:flutter_fitpro/src/utils/my_colors.dart';
+import 'package:flutter_delivery/src/pages/client/list/client_products_list_page.dart';
+import 'package:flutter_delivery/src/pages/login/login_page.dart';
+import 'package:flutter_delivery/src/pages/register/register_page.dart';
+import 'package:flutter_delivery/src/utils/my_colors.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
 class MyApp extends StatefulWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({Key key}) : super(key: key);
 
   @override
   State<MyApp> createState() => _MyAppState();
@@ -21,15 +23,15 @@ class _MyAppState extends State<MyApp> {
       debugShowCheckedModeBanner: false,
       initialRoute: 'login',
       routes: {
-        'login':(BuildContext context ) => LoginPage()
+        'login':(BuildContext context) => LoginPage(),
+        'register':(BuildContext context) => RegisterPages(),
+        'client/products/list':(BuildContext context) => clientProductsListPage()
+
       },
       theme: ThemeData(
-          fontFamily: 'NimbusSans',
-          primaryColor: MyColors.primaryColor
+        fontFamily: 'NimbusSans',
+        primaryColor: MyColors.primaryColor
       ),
     );
   }
 }
-
-
-

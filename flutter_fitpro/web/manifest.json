@@ -5,7 +5,7 @@
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "Este es un paso a paso donde desarrollaremos una app Delivery",
+    "description": "Este paso a paso se desarrollaremos un app Delivery",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

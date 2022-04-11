@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import '../utils/my_colors.dart';
+import '../../utils/my_colors.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 
 class LoginPage extends StatefulWidget {
@@ -14,42 +14,58 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Container(
-          width: double.infinity,
-          child: Stack(
-            children: [
-               Positioned(
-               top: -80,
-               left: -100,
-               child: _OvalClipper()
-              ),
-              Positioned(
-                child: _textLogin(),
-                top: 60,
-                left: 25,
-              ),
-              Column(
-                children: [
-                  //_imageBanner(),
-                  _lottierAnimation(),
-                  _textFielEmail(),
-                  _textFielPassword(),
-                  _textForgetYourPassword(),
-                  _buttonLogin(),
-                  _textDontHaveAccount(),
-                ],
-              ),
-            ],
+      body: Container(
+        width: double.infinity,
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [Colors.black, Colors.red]
           ),
         ),
-     );
+        child: Stack(
+          children: [
+            ClipPath(
+              clipper: WaveClipperOne(),
+              child: Container(
+                color: Colors.white,
+                height: MediaQuery.of(context).size.height*0.3,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                ),
+              ),
+            ),
+
+            Positioned(
+              child: _textLogin(),
+              top: 80,
+              left: MediaQuery.of(context).size.width/3.5,
+            ),
+            Column(
+              children: [
+                //_imageBanner(),
+                _lottierAnimation(),
+                _textFielEmail(),
+                _textFielPassword(),
+                _textForgetYourPassword(),
+                _buttonLogin(),
+                _textDontHaveAccount(),
+                Positioned(
+                  child: _textDesign(),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
   }
 
   Widget _lottierAnimation(){
     return Container(
       margin: EdgeInsets.only(
-        top: 150,
-        bottom: MediaQuery.of(context).size.height * 0.10,
+        top: 200,
+        //bottom: MediaQuery.of(context).size.height * 0.1,
       ),
       child: Lottie.asset(
           'assets/json/squat.json',
@@ -64,29 +80,27 @@ class _LoginPageState extends State<LoginPage> {
   Widget _textLogin(){
     return Text(
       'FitPro',
+      textAlign: TextAlign.center,
       style: TextStyle(
-        color: Colors.black,
-        fontWeight: FontWeight.bold,
-        fontSize: 30,
-        fontFamily: 'NimbusSans'
+          color: Colors.black,
+          fontWeight: FontWeight.bold,
+          fontSize:70,
+          fontFamily: 'NimbusSans'
       ),
     );
   }
 
-  Widget _OvalClipper(){
-    return Column(
-        children: [
-          ClipPath(
-            clipper: OvalBottomBorderClipper(),
-            child: Container(
-
-              color: Colors.white70,
-              height: MediaQuery.of(context).size.height*0.18,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-               ),
-            ),
-          ),
+  Widget _textDesign(){
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Text('Design by LAJOPA',
+          style: TextStyle(
+              color: Colors.white,
+              fontSize: 15
+          ),),
+        SizedBox(width: 7,
+          height: 40,),
       ],
     );
   }
@@ -96,7 +110,8 @@ class _LoginPageState extends State<LoginPage> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text('¿Olvidaste tu contraseña?'),
-        SizedBox(width: 7),
+        SizedBox(width: 7,
+          height: 40,),
         Text(
           'Recuperar contraseña',
           style: TextStyle(
@@ -113,7 +128,8 @@ class _LoginPageState extends State<LoginPage> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text('¿No tienes cuenta?'),
-        SizedBox(width: 7),
+        SizedBox(width: 7
+        ),
         Text(
           'Registrate',
           style: TextStyle(
