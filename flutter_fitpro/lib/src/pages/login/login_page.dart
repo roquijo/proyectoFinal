@@ -113,10 +113,7 @@ class _LoginPageState extends State<LoginPage> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text('¿Olvidaste tu contraseña?'),
-        SizedBox(width: 7,
-          height: 40,),
-        Text(
+          Text(
           'Recuperar contraseña',
           style: TextStyle(
               fontWeight: FontWeight.bold,
@@ -128,20 +125,20 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   Widget _textDontHaveAccount(){
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Text('¿No tienes cuenta?'),
-        SizedBox(width: 7
+    return Container(
+      width: double.infinity,
+      margin: EdgeInsets.symmetric(horizontal: 50),
+      child: ElevatedButton(
+        onPressed: _con.goToRegisterPages,
+        child: Text('registrate'),
+        style: ElevatedButton.styleFrom(
+            primary: MyColors.primaryColor,
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(30)
+            ),
+            //padding: EdgeInsets.symmetric(vertical: 15)
         ),
-        Text(
-          'Registrate',
-          style: TextStyle(
-              fontWeight: FontWeight.bold,
-              color: MyColors.primaryColor
-          ),
-        ),
-      ],
+      ),
     );
   }
 
